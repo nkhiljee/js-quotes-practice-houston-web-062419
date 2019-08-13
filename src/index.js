@@ -1,7 +1,12 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     const ul = document.getElementById("quote-list")
     const form = document.getElementById("new-quote-form")
+
+    fetch("http://localhost:3000/quotes?_embed=likes")
+    .then(res => res.json())
+    .then(quotes => {
+        quotes.forEach(quote => renderQuote(quote))
+    })
 
     function renderQuote(quote) {
         const li = document.createElement("li")
@@ -10,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             blockquote.className = "blockquote"
         const p = document.createElement("p")
             p.className = "mb-0"
-            p.innerText = quote.quote
+            p.innerText = `"${quote.quote}"`
         const footer = document.createElement("footer")
             footer.className = "blockquote-footer"
             footer.innerText = quote.author
@@ -23,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const button2 = document.createElement("button")
             button2.className = "btn btn-outline-danger"
             button2.innerText="Delete"
-
+            
         button1.append(span)
         blockquote.append(p, footer, br, button1, button2)
         li.append(blockquote)
@@ -59,12 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-    fetch("http://localhost:3000/quotes?_embed=likes")
-    .then(res => res.json())
-    .then(quotes => {
-        quotes.forEach(quote => renderQuote(quote))
-    })
-
     form.addEventListener("submit", (event) => {
         event.preventDefault()
         const newQuote = event.target[0].value
@@ -83,6 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(res => res.json())
         .then(quote => renderQuote(quote))
     })
-
-
 })
