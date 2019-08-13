@@ -1,3 +1,32 @@
 #quote-list {
   padding: 20px;
 }
+h1
+{
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+.total
+{
+  display: flex;
+  width: 100%;
+}
+.side
+{
+  width: 33%;
+}
+.center
+{
+  width: 100%;
+  margin-left: 100px;
+  overflow: scroll
+}
+
+.btn
+{
+  margin-right: 10px;
+}
+
+
+
