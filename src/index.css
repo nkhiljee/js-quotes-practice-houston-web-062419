@@ -1,16 +1,25 @@
-#quote-list {
-  padding: 20px;
+body
+{
+background-image: linear-gradient(rgba(255, 255, 255, 0.95),rgba(255, 255, 255, 0.95)),url(https://www.textrazor.com/img/letters_inverse.png);
 }
+
+#quote-list {
+}
+
 h1
 {
   text-align: center;
   padding-top: 40px;
   padding-bottom: 20px;
+  font-size: 64px;
+  font-family: Helvetica;
 }
 .total
 {
   display: flex;
   width: 100%;
+  padding: 20px;
+
 }
 .side
 {
@@ -22,6 +31,13 @@ h1
   margin-left: 100px;
   overflow: scroll
 }
+ul
+{
+list-style-type: none;
+/* list-style:  */
+}
+
+
 
 .btn
 {

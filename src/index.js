@@ -16,18 +16,18 @@ document.addEventListener("DOMContentLoaded", () => {
             footer.innerText = quote.author
         const br = document.createElement("br")
         const button1 = document.createElement("button")
-            button1.className = "btn btn-success"
+            button1.className = "btn btn-outline-success"
             button1.innerText="Likes: "
         const span = document.createElement("span")
             span.innerText = (quote.likes.length ? quote.likes.length : 0)
         const button2 = document.createElement("button")
-            button2.className = "btn btn-danger"
+            button2.className = "btn btn-outline-danger"
             button2.innerText="Delete"
 
         button1.append(span)
         blockquote.append(p, footer, br, button1, button2)
         li.append(blockquote)
-        ul.append(li)
+        ul.prepend(li)
 
         button2.addEventListener("click", () => {
             fetch(`http://localhost:3000/quotes/${quote.id}`, {
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(like => {
                     button1.innerText = `Likes: ${quote.likes.length + 1}`
                 })
-                alreadyClicked = !alreadyClicked
+            alreadyClicked = !alreadyClicked
             }
         })
     }
